@@ -18,6 +18,10 @@ public:
     
     CVector0(int size) : CVector(size){};
 
+    CVector0(int size, const char* f) : CVector(size, f){};
+
+    CVector0(const CVector0 &x) : CVector(x){};
+    
     CVector0(char* str);
 
     using CVector::operator=;

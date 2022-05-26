@@ -32,12 +32,13 @@ int main() {
    
     c0 = a0 + b1;
     cout << "c0: "<<c0;
-    if ((c0[0]==2.1)&&(c0[1]==3.2))
+    if ((c0[0]==2.1) && (c0[1]==3.2))
     cout << "Test1 Ok"<< endl;
+
     
-    c0 = a0 - b1;
-    cout << "c0: "<<c0;
-    if ((c0[0]==0.1)&&(c0[1]==1.2))
+    d0 = a0 - c0;
+    cout << "d0: "<<d0;
+    if ((d0[0]==-1.0) && (d0[1]==-1.0))
     cout << "Test2 Ok"<< endl;
 
 
@@ -55,19 +56,20 @@ int main() {
         in >> f;
         char data[500];
         in.getline(data, 500);
-        if (x == 0)
+        if ((x!=0)&&(x!=1))
         {
-            vec = new CVector0(data);
+            cout << "Error! Invalid input data!" << endl;
+            exit(1);
+        }
+        else
+        {
+            if (x==0)
+                vec = new CVector0(data);
+            else
+                vec = new CVector1(data);
             vec->output(f);
             delete vec;
         }
-        else
-            if (x == 1)
-            {
-               vec = new CVector1(data);
-               vec->output(f);
-               delete vec;
-            }
     }
     return 0;
 }

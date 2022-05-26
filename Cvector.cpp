@@ -95,19 +95,21 @@ const double& CVector:: operator[](int i)const
     return coords[i];
 }
 
-CVector:: ~CVector() {
+CVector::  ~CVector() {
     delete[] coords;
 
 }
 
 CVector0 operator+(const CVector &a, const CVector &b)
 {
-    if (a.size() == b.size())
+    if (a.size() != b.size())
     {
-       CVector0 c(a.size());
-       for (int i = 0; i < a.size(); ++i)
-           c.coords[i] = a.coords[i] + b.coords[i];
+        cout << "Error! In operator+: different size of vectors!" << endl;
+        exit(1);
     }
+    CVector0 c(a.size());
+    for (int i = 0; i < a.size(); ++i)
+        c.coords[i] = a.coords[i] + b.coords[i];
     return c;
 }
 
@@ -115,12 +117,14 @@ CVector0 operator+(const CVector &a, const CVector &b)
 
 CVector0 operator-(const CVector &a, const CVector &b)
 {
-    if (a.size() == b.size())
+    if (a.size() != b.size())
     {
-        CVector0 c(a.size());
-        for (int i = 0; i < a.size(); ++i)
-           c.coords[i] = a.coords[i] + b.coords[i];
+        cout << "Error! In operator-: different size of vectors!" << endl;
+        exit(1);
     }
+    CVector0 c(a.size());
+    for (int i = 0; i < a.size(); ++i)
+        c.coords[i] = a.coords[i] - b.coords[i];
     return c;
 }
 
